@@ -27,7 +27,13 @@ if (dropdown && dropdownToggle) {
     if (event.key === 'Escape') {
       dropdown.classList.remove('open');
       dropdownToggle.setAttribute('aria-expanded', 'false');
-      dropdownToggle.focus();
+      if (window.matchMedia('(max-width: 980px)').matches && navToggle && nav) {
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.focus();
+      } else {
+        dropdownToggle.focus();
+      }
     }
   });
 }

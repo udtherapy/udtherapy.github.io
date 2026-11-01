@@ -954,33 +954,33 @@ textarea { min-height: 150px; resize: vertical; }
   .site-nav > a.nav-contact {
     align-self: flex-start;
     padding: 0.6rem 1rem;
+    order: 10;
   }
 
   .nav-dropdown {
-    width: 100%;
+    display: contents;
   }
 
-  .nav-dropdown-toggle {
-    justify-content: flex-start;
-    padding: 0;
-    width: 100%;
-  }
+  .nav-dropdown-toggle { display: none; }
 
-  .nav-dropdown-menu {
+  .site-nav .nav-dropdown-menu,
+  .site-nav .nav-dropdown.open .nav-dropdown-menu,
+  .site-nav .nav-dropdown:hover .nav-dropdown-menu,
+  .site-nav .nav-dropdown:focus-within .nav-dropdown-menu {
     position: static;
-    min-width: 0;
-    margin: 0.25rem 0 0.5rem;
-    padding: 0.35rem;
-    box-shadow: none;
-    background: rgba(47,47,47,0.035);
+    display: contents;
   }
 
-  .nav-dropdown.open .nav-dropdown-menu {
-    display: grid;
-  }
-
-  .nav-dropdown-menu a {
+  .site-nav .nav-dropdown-menu a {
+    padding: 0.65rem 0;
+    border-radius: 0;
     white-space: normal;
+  }
+
+  .site-nav .nav-dropdown-menu a.active {
+    background: transparent;
+    color: var(--peach-deep);
+    font-weight: 800;
   }
 
   .nav-toggle { display: inline-grid; place-items: center; }
