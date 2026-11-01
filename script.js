@@ -7,14 +7,19 @@ if (navToggle && nav) {
   });
 }
 
-const forms = document.querySelectorAll('form');
-forms.forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const status = form.querySelector('[data-form-status]');
-    if (status) {
-      status.textContent = 'Thank you for reaching out. We will be in touch within 24 hours.';
-    }
-    form.reset();
-  });
-});
+const contactForm = document.querySelector('[data-contact-form]');
+if (contactForm instanceof HTMLFormElement) {
+  const endpoint = contactForm.dataset.contactEndpoint;
+  const status = contactForm.querySelector('[data-form-status]');
+
+  if (endpoint) {
+    contactForm.action = endpoint;
+  } else {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (status) {
+        status.textContent = 'The contact form is not set up yet. Please email beth@udtherapy.com directly.';
+      }
+    });
+  }
+}

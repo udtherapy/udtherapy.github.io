@@ -57,8 +57,8 @@
                 <div class="meta-icon">⌂</div>
                 <div>
                   <strong>Austin Office</strong>
-                  <span>10000 Research Blvd, Suite 2304</span><br>
-                  <span>Austin, TX 78759</span>
+                  <span>Onion Creek/Southpark Meadows Area</span><br>
+                  <span>Austin, TX 78744</span>
                 </div>
               </div>
               <div class="meta-row">
@@ -72,7 +72,7 @@
                 <div class="meta-icon">☎</div>
                 <div>
                   <strong>Phone</strong>
-                  <a href="tel:+17758359739">775-835-9739</a>
+                  <a href="tel:+15126876220">512-687-6220</a>
                 </div>
               </div>
             </div>
@@ -80,27 +80,28 @@
 
           <div class="form-panel">
             <h3>Ask about getting started</h3>
-            <form>
+            <form method="post" data-contact-form data-contact-endpoint="">
               <div class="form-row">
                 <label>
                   First Name
-                  <input type="text" name="firstName" placeholder="Your first name" />
+                  <input type="text" name="firstName" placeholder="Your first name" autocomplete="given-name" maxlength="100" required />
                 </label>
                 <label>
                   Last Name
-                  <input type="text" name="lastName" placeholder="Your last name" />
+                  <input type="text" name="lastName" placeholder="Your last name" autocomplete="family-name" maxlength="100" required />
                 </label>
               </div>
               <label>
                 Email
-                <input type="email" name="email" placeholder="you@example.com" />
+                <input type="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required />
               </label>
               <label>
                 Message
-                <textarea name="message" placeholder="Tell me a little about the support you’re looking for."></textarea>
+                <textarea name="message" placeholder="Share a brief overview of what you're looking for and your preferred method of contact and time of day." maxlength="4000" required></textarea>
               </label>
+              <p style="margin:0; color:var(--muted);">Please do not include detailed health information or anything you would prefer not to send by email.</p>
               <button class="button" type="submit">Send message</button>
-              <p data-form-status aria-live="polite" style="margin:0; color:var(--navy); font-weight:600;"></p>
+              <p data-form-status aria-live="polite" role="status" style="margin:0; color:var(--navy); font-weight:600;"></p>
             </form>
           </div>
         </div>
