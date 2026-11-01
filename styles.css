@@ -761,6 +761,11 @@ h3 {
   align-items: start;
 }
 
+.contact-sidebar {
+  display: grid;
+  gap: var(--content-gap);
+}
+
 .contact-panel,
 .form-panel {
   background: rgba(255,255,255,0.5);
@@ -803,6 +808,36 @@ h3 {
   color: var(--muted);
 }
 
+.social-links {
+  display: grid;
+  justify-items: start;
+  gap: 0.45rem;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-links a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.social-links a:hover { color: var(--peach-deep); }
+
+.social-links a:focus-visible {
+  outline: 3px solid var(--peach-deep);
+  outline-offset: 3px;
+}
+
+.social-links span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
 .form-panel form {
   display: grid;
   gap: 1rem;
@@ -814,6 +849,55 @@ h3 {
   gap: var(--content-gap);
 }
 
+.form-hint {
+  margin: -0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.time-options {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid rgba(12,60,96,0.18);
+  border-radius: 14px;
+}
+
+.time-options legend {
+  padding: 0 0.35rem;
+  color: var(--navy);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.time-options .form-hint { margin: -0.25rem 0 0; }
+
+.time-options-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 1rem;
+}
+
+.time-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.time-option input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  margin: 0;
+  accent-color: var(--navy);
+}
+
 label {
   display: grid;
   gap: 0.45rem;
@@ -822,7 +906,7 @@ label {
   font-size: 0.95rem;
 }
 
-input, textarea {
+input, textarea, select {
   width: 100%;
   border: 1px solid rgba(12,60,96,0.18);
   border-radius: 14px;
@@ -830,6 +914,8 @@ input, textarea {
   color: var(--ink);
   padding: 0.9rem 1rem;
 }
+
+select { cursor: pointer; }
 
 textarea { min-height: 150px; resize: vertical; }
 
@@ -1032,6 +1118,8 @@ textarea { min-height: 150px; resize: vertical; }
   .form-row {
     grid-template-columns: 1fr;
   }
+
+  .time-options-list { grid-template-columns: 1fr; }
 
   .grid-3,
   .faq-grid,

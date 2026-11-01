@@ -7,30 +7,51 @@ function doPost(e) {
     return responsePage('Unable to send message', 'Please return to the contact page and try again.');
   }
 
+  const allFields = e.parameters || {};
   const firstName = String(fields.firstName || '').trim();
   const lastName = String(fields.lastName || '').trim();
   const email = String(fields.email || '').trim();
+  const phone = String(fields.phone || '').trim();
+  const preferredContact = String(fields.preferredContact || '').trim();
+  const bestTimes = Array.isArray(allFields.bestTime)
+    ? allFields.bestTime.map((time) => String(time).trim())
+    : (fields.bestTime ? [String(fields.bestTime).trim()] : []);
   const message = String(fields.message || '').trim();
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validPhone = /^[+()0-9.\-\s]{7,30}$/.test(phone) && phone.replace(/\D/g, '').length >= 7;
+  const validBestTimes = ['7:00 AM-10:00 AM', '10:00 AM-2:00 PM', '2:00 PM-5:00 PM', '5:00 PM-8:00 PM', 'Anytime'];
+  const hasValidBestTimes = bestTimes.length > 0 &&
+    bestTimes.every((time) => validBestTimes.includes(time)) &&
+    (!bestTimes.includes('Anytime') || bestTimes.length === 1);
 
   if (
     !firstName ||
     !lastName ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+    (!email && !phone) ||
+    (email && !validEmail) ||
+    (phone && !validPhone) ||
+    !['Email', 'Phone call', 'Text message'].includes(preferredContact) ||
+    !hasValidBestTimes ||
     !message ||
     firstName.length > 100 ||
     lastName.length > 100 ||
     email.length > 254 ||
+    phone.length > 30 ||
     message.length > 4000
   ) {
     return responsePage('Unable to send message', 'Please check the form fields and try again.');
   }
 
-  MailApp.sendEmail({
+  const emailOptions = {
     to: RECIPIENT,
-    replyTo: email,
     subject: 'New contact form message',
-    body: `Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`
-  });
+    body: `Name: ${firstName} ${lastName}\nEmail: ${email || 'Not provided'}\nPhone: ${phone || 'Not provided'}\nPreferred contact method: ${preferredContact}\nBest time(s) to reach: ${bestTimes.join(', ')}\n\nMessage:\n${message}`
+  };
+  if (email) {
+    emailOptions.replyTo = email;
+  }
+
+  MailApp.sendEmail(emailOptions);
 
   return responsePage('Thank you for reaching out', 'Your message has been sent. We will be in touch within 24 hours.');
 }

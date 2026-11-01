@@ -59,37 +59,54 @@
 
       <section class="section">
         <div class="container contact-grid">
-          <aside class="contact-panel">
-            <h3>Location &amp; contact</h3>
-            <div class="contact-meta">
-              <div class="meta-row">
-                <div class="meta-icon">⌂</div>
-                <div>
-                  <strong>Austin Office</strong>
-                  <span>Onion Creek/Southpark Meadows Area</span><br>
-                  <span>Austin, TX 78744</span>
+          <div class="contact-sidebar">
+            <aside class="contact-panel">
+              <h3>Location &amp; contact</h3>
+              <div class="contact-meta">
+                <div class="meta-row">
+                  <div class="meta-icon">⌂</div>
+                  <div>
+                    <strong>Austin Office</strong>
+                    <span>Onion Creek/Southpark Meadows Area</span><br>
+                    <span>Austin, TX 78744</span>
+                  </div>
+                </div>
+                <div class="meta-row">
+                  <div class="meta-icon">✉</div>
+                  <div>
+                    <strong>Email</strong>
+                    <a href="mailto:beth@udtherapy.com">beth@udtherapy.com</a>
+                  </div>
+                </div>
+                <div class="meta-row">
+                  <div class="meta-icon">☎</div>
+                  <div>
+                    <strong>Phone</strong>
+                    <a href="tel:+15126876220">512-687-6220</a>
+                  </div>
                 </div>
               </div>
+            </aside>
+
+            <aside class="contact-panel social-panel">
               <div class="meta-row">
-                <div class="meta-icon">✉</div>
+                <div class="meta-icon" aria-hidden="true">↗</div>
                 <div>
-                  <strong>Email</strong>
-                  <a href="mailto:beth@udtherapy.com">beth@udtherapy.com</a>
+                  <strong>Connect online</strong>
+                  <ul class="social-links">
+                    <li><a href="https://www.psychologytoday.com/" target="_blank" rel="noopener noreferrer">Psychology Today <span>(coming soon)</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/bethkrueger" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/urban_dandelion_therapy/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok <span>(coming soon)</span></a></li>
+                  </ul>
                 </div>
               </div>
-              <div class="meta-row">
-                <div class="meta-icon">☎</div>
-                <div>
-                  <strong>Phone</strong>
-                  <a href="tel:+15126876220">512-687-6220</a>
-                </div>
-              </div>
-            </div>
-          </aside>
+            </aside>
+          </div>
 
           <div class="form-panel">
             <h3>Ask about getting started</h3>
-            <form method="post" data-contact-form data-contact-endpoint="https://script.google.com/macros/s/AKfycbyN1Uy6X1LBs6QYWlReUzXHiBUDPlM5CSK16d-oSXb4ETwZlwdTSOHbML0pabVNS9dW/exec">
+            <form method="post" data-contact-form data-contact-endpoint="https://script.google.com/macros/s/AKfycbybtrSxAFshHzlW0VEHA_P11s7lUJg2egP4siynJmSgrAheF6pPuF5B9I44kWbO_Bwv/exec">
               <div class="form-row">
                 <label>
                   First Name
@@ -102,11 +119,53 @@
               </div>
               <label>
                 Email
-                <input type="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required />
+                <input type="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="254" aria-describedby="contact-method-requirement" />
               </label>
               <label>
+                Phone
+                <input type="tel" name="phone" placeholder="Your phone number" autocomplete="tel" maxlength="30" />
+              </label>
+              <p id="contact-method-requirement" class="form-hint">Please provide an email address or phone number so I can reach you.</p>
+              <div class="form-row">
+                <label>
+                  Preferred method of contact
+                  <select name="preferredContact" required>
+                    <option value="" selected disabled>Select a method</option>
+                    <option value="Email">Email</option>
+                    <option value="Phone call">Phone call</option>
+                    <option value="Text message">Text message</option>
+                  </select>
+                </label>
+              </div>
+              <fieldset class="time-options" aria-describedby="best-time-hint">
+                <legend>Best time to reach you</legend>
+                <p id="best-time-hint" class="form-hint">Select all times that work, or choose Anytime.</p>
+                <div class="time-options-list">
+                  <label class="time-option">
+                    <input type="checkbox" name="bestTime" value="7:00 AM-10:00 AM" />
+                    <span>7:00–10:00 a.m.</span>
+                  </label>
+                  <label class="time-option">
+                    <input type="checkbox" name="bestTime" value="10:00 AM-2:00 PM" />
+                    <span>10:00 a.m.–2:00 p.m.</span>
+                  </label>
+                  <label class="time-option">
+                    <input type="checkbox" name="bestTime" value="2:00 PM-5:00 PM" />
+                    <span>2:00–5:00 p.m.</span>
+                  </label>
+                  <label class="time-option">
+                    <input type="checkbox" name="bestTime" value="5:00 PM-8:00 PM" />
+                    <span>5:00–8:00 p.m.</span>
+                  </label>
+                  <label class="time-option">
+                    <input type="checkbox" name="bestTime" value="Anytime" />
+                    <span>Anytime</span>
+                  </label>
+                </div>
+              </fieldset>
+              <label>
                 Message
-                <textarea name="message" placeholder="Share a brief overview of what you're looking for and your preferred method of contact and time of day." maxlength="4000" required></textarea>
+                <textarea name="message" placeholder="Share a brief overview of what you're looking for." maxlength="4000" required></textarea>
               </label>
               <p style="margin:0; color:var(--muted);">Please do not include detailed health information or anything you would prefer not to send by email.</p>
               <button class="button" type="submit">Send message</button>
