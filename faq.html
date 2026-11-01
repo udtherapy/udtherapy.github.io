@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ | Urban Dandelion Therapy</title>
-    <meta name="description" content="Answers about reverse caregiving, family counseling, therapy approaches, and telehealth with UD Therapy in Texas." />
+    <meta name="description" content="Answers about reverse caregiving, family counseling, therapy approaches, and telehealth with Urban Dandelion Therapy in Texas." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -24,15 +24,24 @@
           <img src="Reference/image0 (1).jpeg" alt="Urban Dandelion Therapy logo" class="brand-logo" />
         </a> Urban Dandelion Therapy PLLC
 
-        <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
         <nav class="site-nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
-          <a href="fees.html">Fees &amp; Insurance</a>
-          <a class="active" href="faq.html">FAQ</a>
-          <a href="contact.html">Contact</a>
+          <a class="nav-contact" href="contact.html">Contact</a>
+          <div class="nav-dropdown has-active">
+            <button class="nav-dropdown-toggle" type="button" aria-label="More navigation options" aria-expanded="false" aria-haspopup="true">
+              <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="fees.html">Fees &amp; Insurance</a>
+              <a class="active" href="faq.html" aria-current="page">FAQ</a>
+              <a href="resources.html">Resources</a>
+              <a href="blog.html">Blog</a>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
@@ -103,6 +112,8 @@
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
           <a href="faq.html">FAQ</a>
+          <a href="resources.html">Resources</a>
+          <a href="blog.html">Blog</a>
           <a href="contact.html">Contact</a>
         </div>
       </div>

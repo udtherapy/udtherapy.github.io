@@ -24,15 +24,24 @@
           <img src="Reference/image0 (1).jpeg" alt="Urban Dandelion Therapy logo" class="brand-logo" />
         </a> Urban Dandelion Therapy PLLC
 
-        <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
         <nav class="site-nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a class="active" href="about.html">About</a>
           <a href="services.html">Services</a>
-          <a href="fees.html">Fees &amp; Insurance</a>
-          <a href="faq.html">FAQ</a>
-          <a href="contact.html">Contact</a>
+          <a class="nav-contact" href="contact.html">Contact</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-label="More navigation options" aria-expanded="false" aria-haspopup="true">
+              <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+            <div class="nav-dropdown-menu">
+              <a href="fees.html">Fees &amp; Insurance</a>
+              <a href="faq.html">FAQ</a>
+              <a href="resources.html">Resources</a>
+              <a href="blog.html">Blog</a>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
@@ -95,6 +104,11 @@
               <h3>Evidence-informed</h3>
               <p>I draw on CBT, DBT, narrative therapy, and existential thearapy, selecting approaches to fit your needs.</p>
             </article>
+            <article class="card">
+              <div class="icon">✦</div>
+              <h3>Additional Training</h3>
+              <p>I have completed additional training in specialized training in sandtray therapy, play therapy, and trauma-informed care.</p>
+            </article>
     <section class="section story">
       <div class="container">
         <div class="section-intro">
@@ -116,6 +130,8 @@
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
           <a href="faq.html">FAQ</a>
+          <a href="resources.html">Resources</a>
+          <a href="blog.html">Blog</a>
           <a href="contact.html">Contact</a>
         </div>
       </div>
