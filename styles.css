@@ -940,10 +940,15 @@ textarea { min-height: 150px; resize: vertical; }
   color: var(--navy);
 }
 
-.resource-grid,
-.blog-list {
+.resource-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--content-gap);
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--content-gap);
 }
 
@@ -960,7 +965,7 @@ textarea { min-height: 150px; resize: vertical; }
 
 .resource-card h2,
 .blog-post h2 {
-  margin-bottom: 0.65rem;
+  margin: 0 0 0.65rem;
   font-size: clamp(1.35rem, 2vw, 1.7rem);
 }
 
@@ -994,8 +999,51 @@ textarea { min-height: 150px; resize: vertical; }
   font-size: 0.9rem;
 }
 
+.blog-post {
+  width: 100%;
+}
+
+.blog-post-toggle {
+  position: relative;
+  display: block;
+  padding-right: 2.5rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.blog-post-toggle::-webkit-details-marker { display: none; }
+
+.blog-post-toggle::after {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.35rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
+  content: "";
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.blog-post[open] .blog-post-toggle::after {
+  transform: rotate(225deg);
+}
+
+.blog-post-toggle:focus-visible {
+  outline: 3px solid var(--peach-deep);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.blog-post-summary {
+  max-width: 75ch;
+  margin-bottom: 0;
+}
+
 .blog-post-content {
-  margin-top: 1rem;
+  max-width: 80ch;
+  margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--line);
 }
@@ -1079,7 +1127,6 @@ textarea { min-height: 150px; resize: vertical; }
   .grid-3,
   .faq-grid,
   .resource-grid,
-  .blog-list,
   .metrics,
   .process { grid-template-columns: 1fr 1fr; }
 
@@ -1124,7 +1171,6 @@ textarea { min-height: 150px; resize: vertical; }
   .grid-3,
   .faq-grid,
   .resource-grid,
-  .blog-list,
   .metrics,
   .process,
   .hero-notes { grid-template-columns: 1fr; }

@@ -27,18 +27,22 @@ if (blogList) {
     });
 
     posts.forEach((post) => {
-      const article = document.createElement('article');
+      const article = document.createElement('details');
       article.className = 'blog-post';
 
-      const heading = document.createElement('h2');
-      heading.textContent = post.title;
+      const toggle = document.createElement('summary');
+      toggle.className = 'blog-post-toggle';
 
       const date = document.createElement('time');
       date.className = 'blog-meta';
       date.dateTime = post.date;
       date.textContent = dateFormatter.format(new Date(`${post.date}T00:00:00Z`));
 
+      const heading = document.createElement('h2');
+      heading.textContent = post.title;
+
       const summary = document.createElement('p');
+      summary.className = 'blog-post-summary';
       summary.textContent = post.summary;
 
       const content = document.createElement('div');
@@ -49,7 +53,8 @@ if (blogList) {
         content.append(paragraph);
       });
 
-      article.append(heading, date, summary, content);
+      toggle.append(date, heading, summary);
+      article.append(toggle, content);
       blogList.append(article);
     });
   }
