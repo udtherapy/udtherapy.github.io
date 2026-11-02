@@ -756,9 +756,15 @@ h3 {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(16rem, 0.8fr);
   gap: var(--content-gap);
   align-items: start;
+}
+
+.contact-main {
+  display: grid;
+  gap: var(--content-gap);
+  min-width: 0;
 }
 
 .contact-sidebar {
@@ -773,6 +779,16 @@ h3 {
   border-radius: 24px;
   padding: 1.6rem;
   box-shadow: var(--shadow);
+}
+
+.schedule-button {
+  margin-top: 0.5rem;
+}
+
+.form-status {
+  margin: 0;
+  color: var(--navy);
+  font-weight: 600;
 }
 
 .contact-meta {
