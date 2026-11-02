@@ -1,31 +1,28 @@
 # Updating the blog
 
-The blog uses a small post list so it can be maintained without a separate service or account.
+Each article is a standalone HTML page. That puts the full article in the page source for readers, search engines, and other crawlers, while the blog index keeps a compact, expandable listing.
 
-1. Open `blog-posts.js`.
-2. Replace the empty array (`[]`) with one or more post objects in this format:
+## Add a post
 
-   ```js
-   window.blogPosts = [
-     {
-       title: 'A post title',
-       date: '2026-11-01',
-       summary: 'A short introduction to the post.',
-       paragraphs: [
-         'The first paragraph of the article.',
-         { type: 'heading', text: 'A section heading' },
-         {
-           type: 'paragraph',
-           lead: 'A bold phrase.',
-           text: ' The rest of the paragraph.'
-         }
-       ]
-     }
-   ];
+1. Create a new page under `blog/` by copying `blog/im-not-the-patient.html`. Use a short, unique, lowercase slug with hyphens, such as `blog/my-new-post.html`.
+2. Update the page title, description, canonical URL, Open Graph metadata, structured `BlogPosting` data, date, headings, and article text. Keep the article text in normal HTML paragraphs and headings; use `<strong>` for bold phrases.
+3. Add an entry to the list in `blog.html`, inside `<div class="blog-list">`:
+
+   ```html
+   <details class="blog-post">
+     <summary class="blog-post-toggle">
+       <time class="blog-meta" datetime="2026-11-01">November 1, 2026</time>
+       <h2>A post title</h2>
+       <p class="blog-post-summary">A short description of the post.</p>
+     </summary>
+     <div class="blog-post-content">
+       <p>A short invitation to read the full article.</p>
+       <a class="button" href="blog/my-new-post.html">Read the full post</a>
+     </div>
+   </details>
    ```
 
-3. Keep dates in `YYYY-MM-DD` format. Add each new post as another object in the array; the newest date appears first.
-4. Each post initially displays its date, title, and summary. Readers can select the post to expand or collapse its paragraphs.
-5. Save the file and publish the site the same way you publish other website changes.
+4. Add the page's full URL to `sitemap.xml`, using the same domain and path as its canonical URL.
+5. Save and publish the changes. The expandable listing and article pages are regular HTML and do not depend on JavaScript to display their content.
 
-Post text is treated as plain text, so characters such as apostrophes do not need HTML escaping. Use `heading` blocks for section subtitles and `paragraph` blocks with a `lead` for bold introductory phrases. The page does not store posts in a third-party service.
+Use dates in `YYYY-MM-DD` format for `datetime`, canonical and structured data URLs should match the page's actual URL, and summaries should briefly describe the article. The blog is maintained with static files and does not store posts in a third-party service.

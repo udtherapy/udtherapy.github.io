@@ -1060,6 +1060,40 @@ textarea { min-height: 150px; resize: vertical; }
 
 .blog-post-content h3:first-child { margin-top: 0; }
 
+.blog-article {
+  width: 100%;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.65);
+  box-shadow: var(--shadow);
+}
+
+.blog-article-content {
+  max-width: 80ch;
+}
+
+.blog-article-content p + p { margin-top: 0.9rem; }
+
+.blog-article-content h2 {
+  margin: 1.75rem 0 0.65rem;
+  color: var(--navy);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+  line-height: 1.25;
+}
+
+.blog-back-link {
+  margin-top: var(--content-gap);
+}
+
+.blog-back-link a {
+  color: var(--navy);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .blog-empty {
   grid-column: 1 / -1;
 }
