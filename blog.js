@@ -47,10 +47,28 @@ if (blogList) {
 
       const content = document.createElement('div');
       content.className = 'blog-post-content';
-      post.paragraphs.forEach((text) => {
-        const paragraph = document.createElement('p');
-        paragraph.textContent = text;
-        content.append(paragraph);
+      post.paragraphs.forEach((block) => {
+        if (typeof block === 'string') {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = block;
+          content.append(paragraph);
+          return;
+        }
+
+        if (block.type === 'heading') {
+          const subheading = document.createElement('h3');
+          subheading.textContent = block.text;
+          content.append(subheading);
+          return;
+        }
+
+        if (block.type === 'paragraph') {
+          const paragraph = document.createElement('p');
+          const lead = document.createElement('strong');
+          lead.textContent = block.lead;
+          paragraph.append(lead, document.createTextNode(block.text));
+          content.append(paragraph);
+        }
       });
 
       toggle.append(date, heading, summary);
